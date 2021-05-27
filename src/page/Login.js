@@ -30,8 +30,8 @@ export class Login extends Component {
             if (data !== ""){
                 this.props.LoginAction(true,"isLogin")
                 this.props.LoginAction(data, "dataUser")
-                console.log(this.props)
                 alert("Login Berhasil!")
+                this.props.navigation.navigate('MainMenu')
             }else{
                 alert("Login Gagal")
                 this.props.LoginAction(false,"isLogin")

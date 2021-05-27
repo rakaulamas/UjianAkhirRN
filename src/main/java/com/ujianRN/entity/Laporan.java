@@ -27,5 +27,6 @@ public class Laporan {
 	private String status;
 	private String keterangan;
 	private String gambar;
+	private String jam;
 		
 }

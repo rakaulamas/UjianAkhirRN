@@ -17,7 +17,7 @@ export class Register extends Component {
 
   
   simpanData(){
-    axios.post('http://192.168.1.6:4050/user/register/',this.state)
+    axios.post('http://192.168.1.9:4050/user/register/',this.state)
     .then((response) => {
       alert(response.data)
       this.props.navigation.navigate('Home')

@@ -28,5 +28,7 @@ public class Laporan {
 	private String keterangan;
 	private String gambar;
 	private String jam;
+	private String latitude;
+	private String longitude;
 		
 }

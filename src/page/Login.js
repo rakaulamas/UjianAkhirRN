@@ -19,7 +19,7 @@ export class Login extends Component {
     
 
     handleLogin(){
-        axios.get('http://192.168.1.9:4050/user/login/',{
+        axios.get('http://192.168.1.2:4050/user/login/',{
             params: {
                 name:this.state.name,
                 phone: this.state.phone,

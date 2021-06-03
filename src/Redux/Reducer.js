@@ -6,10 +6,10 @@ const initialLoginGlobal={
 }
 
 function LoginReducer(state=initialLoginGlobal,action){
-    if(action.type === 'SET_LOGIN'){
+    if(action.type === "SET_LOGIN"){
         return({
             ...state,
-            [action.inputTTypre]:action.inputValue
+            [action.inputType]:action.inputValue
         })
     }
     return state;

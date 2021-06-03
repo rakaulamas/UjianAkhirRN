@@ -26,7 +26,7 @@ export class Laporan extends Component {
 
     componentDidMount() {
         this.getPermission()
-        this.getLocatiton()
+        this.getLocation()
     }
 
     async getPermission(){
@@ -50,12 +50,13 @@ export class Laporan extends Component {
           
       
           if (!result.cancelled) {
+            console.log(result.uri)
             this.setState({gambar:result.uri})
           }
 
     }
 
-    async getLocatiton(){
+    async getLocation(){
         let { status } = await Location.requestForegroundPermissionsAsync();
         if (status !== "granted") {
          // setErrorMsg("Permission denied");
@@ -95,7 +96,7 @@ export class Laporan extends Component {
         // formData.append('jam',this.state.jam);
         // formData.append('latitude',this.state.latitude);
         // formData.append('longitude',this.state.longitude);
-        axios.post('http://192.168.1.9:4050/laporan/add', formData,{
+        axios.post('http://192.168.1.2:4050/laporan/add', formData,{
             headers: {
                 
                 'Content-Type': 'multipart/form-data'

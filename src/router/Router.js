@@ -7,6 +7,8 @@ import Login from '../page/Login';
 import MainMenu  from '../page/MainMenu';
 import  Laporan  from '../page/Laporan';
 import History  from '../page/History';
+import MapPage  from '../page/MapPage';
+
 
 
 
@@ -14,13 +16,14 @@ const Stack = createStackNavigator();
 export class Router extends Component {
     render() {
         return (
-            <Stack.Navigator inisialRouteName='Home'>
+            <Stack.Navigator initialRouteName='Home'>
             <Stack.Screen name="Home" component={Home}/>
             <Stack.Screen name="Register" component={Register}/>
             <Stack.Screen name="Login" component={Login}/>
             <Stack.Screen name="MainMenu" component={MainMenu}/>
             <Stack.Screen name="Laporan" component={Laporan}/>
             <Stack.Screen name="History" component={History}/>
+            <Stack.Screen name="MapPage" component={MapPage}/>
           </Stack.Navigator>
         )
     }

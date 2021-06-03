@@ -7,21 +7,21 @@ import axios from 'axios';
 export class History extends Component {
    constructor(props) {
        super(props);
-    this.state = {
-         dataFlatList:{}
+            this.state = {
+            dataFlatList:{}
 }
    }
 
 componentDidMount(){
-    if(this.props.isLogin){
-        this.props.navigation.navigate("Home")
-    }else{
-        this.getData()
-    }
+    // if(this.props.isLogin){
+    //     this.props.navigation.navigate("Home")
+    // }else{
+         this.getData()
+    // }
 }
 
 getData(){
-    axios.get('http://192.168.1.9:4050/laporan/')
+    axios.get('http://192.168.1.2:4050/laporan/')
     .then((response)=>{
         let data = response.data
         console.log(data)
@@ -31,28 +31,36 @@ getData(){
         console.log(error)
     })
 
-
 }
 
 
     render() {
         return (
-            <View>
+            <View >
                 <FlatList
                     data={this.state.dataFlatList}
                     keyExtractor={item=>parseInt(item.id)}
                     renderItem={({item})=>(
+                        <View style={{borderWidth:5,borderColor:"orange", flexDirection:"row",margin:5}}>
                         <Image style={{width:150,height:150,alignSelf:'center'}} 
-                        source={{uri:`http://192.168.1.9:4050/laporan/image/${item.gambar}`}} />
+                        source={{uri:`http://192.168.1.2:4050/laporan/image/${item.gambar}`}} />
+                            <View style={{flexDirection:"column",alignSelf:"center"}}>
+                                <Text>Status : {item.status}</Text>
+                                <Text>Jam : {item.jam}</Text>
+                                <Text>Alamat : {item.alamat}</Text>
+                            </View>
+                        </View>
                     )}
                 />
             </View>
+            
+
         )
     }
 }
 
 const mapStateToProps = (state) => ({
-    usLogin:state.LoginReducer
+    isLogin:state.LoginReducer.isLogin
 })
 
 const mapDispatchToProps = {
